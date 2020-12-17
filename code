@@ -1,0 +1,9 @@
+select
+floor(revenue/20.00)*20 as bucket_floor,
+count(distinct id) as count
+from $table
+where timestamp > '12/01/2020'
+and revenue is not null
+and revenue <>0
+group by 1
+order by 1
